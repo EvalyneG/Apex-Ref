@@ -893,32 +893,38 @@ footer{background:var(--navy);color:#fff;padding:60px 0 22px}
           <a href="https://wa.me/254722614619?text=Hi%20Apex%2C%20I%20need%20help%20with%20my%20appliance" class="btn btn-wa" target="_blank">💬 WhatsApp</a>
         </div>
       </div>
-      <div class="cta-right-card">
-        <h3>Request a Service</h3>
-        <div class="cta-form-grid">
-          <div class="cf-group"><div class="cf-label">Full Name</div><input type="text" placeholder="e.g. James Mwangi"/></div>
-          <div class="cf-group"><div class="cf-label">Phone Number</div><input type="tel" placeholder="+254 7XX XXX XXX"/></div>
-          <div class="cf-group full">
-            <div class="cf-label">Service Required</div>
-            <select>
-              <option value="">Select a service…</option>
-              <option>Fridge Repair &amp; Servicing</option>
-              <option>Microwave Repair</option>
-              <option>AC Services</option>
-              <option>Cold Room Service</option>
-              <option>Spare Parts Enquiry</option>
-              <option>Other</option>
-            </select>
-          </div>
-          <div class="cf-group full">
-            <div class="cf-label">Describe the Problem</div>
-            <textarea placeholder="e.g. Fridge not cooling, AC making noise…"></textarea>
-          </div>
-          <div class="cf-submit">
-            <button class="btn btn-blue" onclick="window.location.href='mailto:apex.refrigeration@outlook.com'">Send Request →</button>
-          </div>
-        </div>
-      </div>
+<div class="cta-right-card">
+  <h3>Request a Service</h3>
+  <div class="cta-form-grid">
+    <div class="cf-group">
+      <div class="cf-label">Full Name</div>
+      <input type="text" id="cf-name" placeholder="e.g. James Mwangi"/>
+    </div>
+    <div class="cf-group">
+      <div class="cf-label">Phone Number</div>
+      <input type="tel" id="cf-phone" placeholder="+254 7XX XXX XXX"/>
+    </div>
+    <div class="cf-group full">
+      <div class="cf-label">Service Required</div>
+      <select id="cf-service">
+        <option value="">Select a service…</option>
+        <option>Fridge Repair &amp; Servicing</option>
+        <option>Microwave Repair</option>
+        <option>AC Services</option>
+        <option>Cold Room Service</option>
+        <option>Spare Parts Enquiry</option>
+        <option>Other</option>
+      </select>
+    </div>
+    <div class="cf-group full">
+      <div class="cf-label">Describe the Problem</div>
+      <textarea id="cf-message" placeholder="e.g. Fridge not cooling, AC making noise…"></textarea>
+    </div>
+    <div class="cf-submit">
+      <button class="btn btn-blue" onclick="submitApexForm()">Send Request →</button>
+    </div>
+  </div>
+</div>
     </div>
   </div>
 </section>
@@ -1002,6 +1008,28 @@ function toggleFaq(btn){
 window.addEventListener('scroll',()=>{
   document.getElementById('nav').style.boxShadow=scrollY>50?'0 2px 24px rgba(0,0,0,.4)':'none';
 });
+
+  function submitApexForm() {
+  const name    = document.getElementById('cf-name').value.trim();
+  const phone   = document.getElementById('cf-phone').value.trim();
+  const service = document.getElementById('cf-service').value.trim();
+  const message = document.getElementById('cf-message').value.trim();
+
+  if (!name || !phone || !service || !message) {
+    alert('Please fill in all fields before sending.');
+    return;
+  }
+
+  const subject = encodeURIComponent('Service Request – Apex Refrigeration & AC');
+  const body = encodeURIComponent(
+    'Name: ' + name + '\n' +
+    'Phone: ' + phone + '\n' +
+    'Service Required: ' + service + '\n\n' +
+    'Problem Description:\n' + message
+  );
+
+  window.location.href = 'mailto:apex.refrigeration@outlook.com?subject=' + subject + '&body=' + body;
+}
 </script>
 </body>
 </html>
