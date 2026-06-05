@@ -527,7 +527,6 @@ footer{background:var(--navy);color:#fff;padding:60px 0 22px}
     <div class="mob" id="mob">
       <a href="#services">Services</a>
       <!--a href="#why">Why Choose Us</a-->
-      <a href="#parts">Spare Parts</a>
       <a href="#about">About</a>
       <a href="#faq">FAQ</a>
       <a href="tel:+254722614619" style="color:var(--cyan)">📞 Call Now: +254 722 614 619</a>
@@ -929,7 +928,7 @@ footer{background:var(--navy);color:#fff;padding:60px 0 22px}
           <li><a href="#services">Microwave Repair</a></li>
           <li><a href="#services">AC Installation &amp; Repair</a></li>
           <li><a href="#services">Cold Rooms Services</a></li>
-          <li><a href="#parts">Spare Parts</a></li>
+          <li><a href="#services">Spare Parts</a></li>
         </ul>
       </div>
       <div class="ft-col">
@@ -944,10 +943,10 @@ footer{background:var(--navy);color:#fff;padding:60px 0 22px}
       </div>
       <div class="ft-col">
         <h4>Contact</h4>
-        <div class="ft-contact-row"><span>📞</span><span>+254 722 614 619</span></div>
-        <div class="ft-contact-row"><span>💬</span><span>WhatsApp: +254 722 614 619</span></div>
-        <div class="ft-contact-row"><span>📧</span><span>apex.refrigeration@outlook.com</span></div>
-        <div class="ft-contact-row"><span>📍</span><span>Prime Plaza, Mburu Gichua Rd, Nakuru Town, Kenya</span></div>
+        <div class="ft-contact-row"><span>📞</span><a href="tel:+254722614619" style="color:rgba(255,255,255,.5);transition:color .2s" onmouseover="this.style.color='#00aadd'" onmouseout="this.style.color='rgba(255,255,255,.5)'">+254 722 614 619</a></div>
+        <div class="ft-contact-row"><span>💬</span><a href="https://wa.me/254722614619" target="_blank" style="color:rgba(255,255,255,.5);transition:color .2s" onmouseover="this.style.color='#00aadd'" onmouseout="this.style.color='rgba(255,255,255,.5)'">WhatsApp: +254 722 614 619</a></div>
+        <div class="ft-contact-row"><span>📧</span><a href="mailto:apex.refrigeration@outlook.com" style="color:rgba(255,255,255,.5);transition:color .2s" onmouseover="this.style.color='#00aadd'" onmouseout="this.style.color='rgba(255,255,255,.5)'">apex.refrigeration@outlook.com</a></div>
+        <div class="ft-contact-row"><span>📍</span><a href="https://maps.google.com/?q=Prime+Plaza+Mburu+Gichua+Rd+Nakuru" target="_blank" style="color:rgba(255,255,255,.5);transition:color .2s" onmouseover="this.style.color='#00aadd'" onmouseout="this.style.color='rgba(255,255,255,.5)'">Prime Plaza, Mburu Gichua Rd, Nakuru Town, Kenya</a></div>
         <div class="ft-contact-row"><span>🕐</span><span>Mon–Sat: 8 AM – 6 PM, Holidays 9 AM - 5PM</span></div>
       </div>
     </div>
@@ -977,27 +976,6 @@ window.addEventListener('scroll',()=>{
   document.getElementById('nav').style.boxShadow=scrollY>50?'0 2px 24px rgba(0,0,0,.4)':'none';
 });
 
-  function submitApexForm() {
-  const name    = document.getElementById('cf-name').value.trim();
-  const phone   = document.getElementById('cf-phone').value.trim();
-  const service = document.getElementById('cf-service').value.trim();
-  const message = document.getElementById('cf-message').value.trim();
-
-  if (!name || !phone || !service || !message) {
-    alert('Please fill in all fields before sending.');
-    return;
-  }
-
-  const subject = encodeURIComponent('Service Request – Apex Refrigeration & AC');
-  const body = encodeURIComponent(
-    'Name: ' + name + '\n' +
-    'Phone: ' + phone + '\n' +
-    'Service Required: ' + service + '\n\n' +
-    'Problem Description:\n' + message
-  );
-
-  window.location.href = 'mailto:apex.refrigeration@outlook.com?subject=' + subject + '&body=' + body;
-}
 </script>
 </body>
 </html>
